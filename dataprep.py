@@ -136,7 +136,7 @@ def main() :
 
     dataset_dir = join(args.data_dir, "datasets")
     if args.dataset == 'cars':
-        save_caption_vectors_cars(dataset_dir)
+        save_caption_vectors_flowers(dataset_dir)
     else:
         print('Preprocessor for this dataset is not available.')
 
