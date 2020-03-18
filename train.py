@@ -57,8 +57,8 @@ def main():
 	parser.add_argument('--resume_model', type=bool, default=False,
 						help='Pre-Trained Model load or not')
 
-	parser.add_argument('--data_set', type=str, default="flowers",
-						help='Dat set: MS-COCO, flowers')
+	parser.add_argument('--data_set', type=str, default="cars",
+						help='Dat set: MS-COCO, cars')
 
 	parser.add_argument('--model_name', type=str, default="TAC_GAN",
 						help='model_1 or model_2')
@@ -244,17 +244,17 @@ def main():
 def load_training_data(data_dir, data_set, caption_vector_length, n_classes) :
 	if data_set == 'flowers' :
 		flower_str_captions = pickle.load(
-			open(join(data_dir, 'flowers', 'flowers_caps.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'cars_caps.pkl'), "rb"))
 
 		img_classes = pickle.load(
-			open(join(data_dir, 'flowers', 'flower_tc.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'car_tc.pkl'), "rb"))
 
 		flower_enc_captions = pickle.load(
-			open(join(data_dir, 'flowers', 'flower_tv.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'car_tv.pkl'), "rb"))
 		tr_image_ids = pickle.load(
-			open(join(data_dir, 'flowers', 'train_ids.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'train_ids.pkl'), "rb"))
 		val_image_ids = pickle.load(
-			open(join(data_dir, 'flowers', 'val_ids.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'val_ids.pkl'), "rb"))
 
 		max_caps_len = caption_vector_length
 		tr_n_imgs = len(tr_image_ids)
@@ -364,7 +364,7 @@ def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 		image_caps = []
 		for idx, image_id in enumerate(image_ids) :
 			image_file = join(data_dir,
-			                  'flowers/jpg/' + image_id)
+			                  'cars/jpg/' + image_id)
 			random_caption = random.randint(0, 4)
 			captions[idx, :] = \
 				loaded_data['val_captions'][image_id][random_caption][
@@ -396,7 +396,7 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 		               batch_no * batch_size + batch_size) :
 			idx = i % len(loaded_data['image_list'])
 			image_file = join(data_dir,
-			                  'flowers/jpg/' + loaded_data['image_list'][idx])
+			                  'cars/jpg/' + loaded_data['image_list'][idx])
 
 			image_ids.append(loaded_data['image_list'][idx])
 
@@ -408,7 +408,7 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 			wrong_image_id = random.randint(0,
 			                                len(loaded_data['image_list']) - 1)
 			wrong_image_file = join(data_dir,
-			                        'flowers/jpg/' + loaded_data['image_list'][
+			                        'cars/jpg/' + loaded_data['image_list'][
 				                                            wrong_image_id])
 			wrong_image_array = image_processing.load_image_array_flowers(wrong_image_file,
 			                                                      image_size)
