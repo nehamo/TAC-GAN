@@ -50,7 +50,7 @@ def one_hot_encode_str_lbl(lbl, target, one_hot_targets):
         idx = target.index(lbl)
         return one_hot_targets[idx]
 
-def save_caption_vectors_flowers(data_dir, dt_range=(1, 103)) :
+def save_caption_vectors_flowers(data_dir, dt_range=(1, 17)) :
     import time
 
     img_dir = join(data_dir, 'cars/jpg')
