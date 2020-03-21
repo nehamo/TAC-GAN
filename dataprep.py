@@ -134,7 +134,7 @@ def main() :
                         help='Dataset to use. For Eg., "cars"')
     args = parser.parse_args()
 
-    dataset_dir = join(args.data_dir, "datasets")
+    dataset_dir = join(args.data_dir, "dataset")
     if args.dataset == 'cars':
         save_caption_vectors_flowers(dataset_dir)
     else:
