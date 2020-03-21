@@ -53,10 +53,10 @@ def one_hot_encode_str_lbl(lbl, target, one_hot_targets):
 def save_caption_vectors_flowers(data_dir, dt_range=(1, 103)) :
     import time
 
-    img_dir = join(data_dir, 'cars')
+    img_dir = join(data_dir, 'cars/jpg')
     all_caps_dir = join(data_dir, 'cars/all_captions.txt')
     target_file_path = os.path.join(data_dir, "cars/allclasses.txt")
-    caption_dir = join(data_dir, '/content/drive/My Drive/Colab Notebooks/Data/dataset flowers/text_c10')
+    caption_dir = join(data_dir, 'cars/text_c10')
     image_files = [f for f in os.listdir(img_dir) if 'jpg' in f]
     print(image_files[300 :400])
     image_captions = {}

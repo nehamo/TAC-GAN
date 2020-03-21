@@ -21,8 +21,8 @@ profile = False
 #-----------------------------------------------------------------------------#
 # Specify model and table locations here
 #-----------------------------------------------------------------------------#
-path_to_models = 'content/drive/My Drive/Colab Notebooks/Data/skipthoughts'
-path_to_tables = '/content/drive/My Drive/Colab Notebooks/Data/dataset/cars/jpg'
+path_to_models = '/content/drive/My Drive/Colab Notebooks/Data/skipthoughts/'
+path_to_tables = '/content/drive/My Drive/Colab Notebooks/Data/skipthoughts/'
 #-----------------------------------------------------------------------------#
 
 path_to_umodel = path_to_models + 'uni_skip.npz'
