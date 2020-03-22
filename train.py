@@ -38,7 +38,7 @@ def main():
 	parser.add_argument('--caption_vector_length', type=int, default=4800,
 						help='Caption Vector Length')
 
-	parser.add_argument('--n_classes', type = int, default = 102,
+	parser.add_argument('--n_classes', type = int, default = 16,
 	                    help = 'Number of classes/class labels')
 
 	parser.add_argument('--data_dir', type=str, default="Data",
@@ -61,7 +61,7 @@ def main():
 						help='Pre-Trained Model load or not')
 
 	parser.add_argument('--data_set', type=str, default="cars",
-						help='Dat set:  cars')
+						help='Dat set: MS-COCO cars')
 
 	parser.add_argument('--model_name', type=str, default="TAC_GAN",
 						help='model_1 or model_2')
