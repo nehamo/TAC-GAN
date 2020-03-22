@@ -61,7 +61,7 @@ def main():
 						help='Pre-Trained Model load or not')
 
 	parser.add_argument('--data_set', type=str, default="cars",
-						help='Dat set: MS-COCO, cars')
+						help='Dat set:  cars')
 
 	parser.add_argument('--model_name', type=str, default="TAC_GAN",
 						help='model_1 or model_2')
