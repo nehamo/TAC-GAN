@@ -245,7 +245,7 @@ def main():
 
 
 def load_training_data(data_dir, data_set, caption_vector_length, n_classes) :
-	if data_set == 'flowers' :
+	if data_set == 'cars' :
 		flower_str_captions = pickle.load(
 			open(join(data_dir, 'cars', 'cars_caps.pkl'), "rb"))
 
@@ -255,7 +255,7 @@ def load_training_data(data_dir, data_set, caption_vector_length, n_classes) :
 		flower_enc_captions = pickle.load(
 			open(join(data_dir, 'cars', 'car_tv.pkl'), "rb"))
 		tr_image_ids = pickle.load(
-			open(join(data_dir, 'cars', 'train_ids.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'cars_ids.pkl'), "rb"))
 		val_image_ids = pickle.load(
 			open(join(data_dir, 'cars', 'val_ids.pkl'), "rb"))
 
@@ -384,7 +384,7 @@ def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 
 def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
                        data_dir, data_set, loaded_data = None) :
-	if data_set == 'flowers':
+	if data_set == 'cars':
 		real_images = np.zeros((batch_size, image_size, image_size, 3))
 		wrong_images = np.zeros((batch_size, image_size, image_size, 3))
 		captions = np.zeros((batch_size, loaded_data['max_caps_len']))
