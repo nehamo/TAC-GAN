@@ -12,6 +12,9 @@ import numpy as np
 from os.path import join
 from Utils import image_processing
 
+import imageio
+from skimage import img_as_ubyte
+
 def main():
 	parser = argparse.ArgumentParser()
 	parser.add_argument('--z_dim', type=int, default=100,
@@ -312,11 +315,11 @@ def save_for_viz_val(data_dir, generated_images, image_files, image_caps,
 			os.makedirs(image_dir)
 
 		real_image_path = join(image_dir,
-							   '{}.jpg'.format(image_ids[i]))
+							   '{}.tif'.format(image_ids[i]))
 		if os.path.exists(image_dir):
 			real_images_255 = image_processing.load_image_array(image_files[i],
 										image_size, image_ids[i], mode='val')
-			scipy.misc.imsave(real_image_path, real_images_255)
+			imageio.imwrite(real_image_path, real_images_255)
 
 		caps_dir = join(image_dir, "caps.txt")
 		if not os.path.exists(caps_dir):
@@ -324,7 +327,7 @@ def save_for_viz_val(data_dir, generated_images, image_files, image_caps,
 				text_file.write(image_caps[i]+"\n")
 
 		fake_images_255 = generated_images[i]
-		scipy.misc.imsave(join(image_dir, 'fake_image_{}.jpg'.format(id)),
+		imageio.imwrite(join(image_dir, 'fake_image_{}.tif'.format(id)),
 		                  fake_images_255)
 
 
@@ -336,12 +339,12 @@ def save_for_vis(data_dir, real_images, generated_images, image_files,
 
 	for i in range(0, real_images.shape[0]) :
 		real_images_255 = (real_images[i, :, :, :])
-		scipy.misc.imsave(join(data_dir,
-			   '{}_{}.jpg'.format(i, image_files[i].split('/')[-1])),
+		imageio.imwrite(join(data_dir,
+			   '{}_{}.tiff'.format(i, image_files[i].split('/')[-1])),
 		                  real_images_255)
 
 		fake_images_255 = (generated_images[i, :, :, :])
-		scipy.misc.imsave(join(data_dir, 'fake_image_{}.jpg'.format(
+		imageio.imwrite(join(data_dir, 'fake_image_{}.tif'.format(
 			i)), fake_images_255)
 
 	str_caps = '\n'.join(image_caps)
@@ -354,7 +357,7 @@ def save_for_vis(data_dir, real_images, generated_images, image_files,
 
 def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 
-	if data_set == 'flowers':
+	if data_set == 'cars':
 		captions = np.zeros((batch_size, loaded_data['max_caps_len']))
 
 		batch_idx = np.random.randint(0, loaded_data['val_data_len'],
@@ -364,7 +367,7 @@ def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 		image_caps = []
 		for idx, image_id in enumerate(image_ids) :
 			image_file = join(data_dir,
-			                  'cars/jpg/' + image_id)
+			                  'cars/jpg/images' + image_id)
 			random_caption = random.randint(0, 4)
 			captions[idx, :] = \
 				loaded_data['val_captions'][image_id][random_caption][
@@ -395,8 +398,8 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 		for i in range(batch_no * batch_size,
 		               batch_no * batch_size + batch_size) :
 			idx = i % len(loaded_data['image_list'])
-			image_file = join(data_dir,
-			                  'cars/jpg/' + loaded_data['image_list'][idx])
+			image_file = join(data_dir+'/'+data_set+'/'+
+			                  'jpg/images' + loaded_data['image_list'][idx])
 
 			image_ids.append(loaded_data['image_list'][idx])
 
