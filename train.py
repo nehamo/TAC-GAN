@@ -74,7 +74,7 @@ def main():
 	model_dir, model_chkpnts_dir, model_samples_dir, model_val_samples_dir,\
 							model_summaries_dir = initialize_directories(args)
 
-	datasets_root_dir = join(args.data_dir, 'dataset')
+	datasets_root_dir = join(args.data_dir, 'datasets')
 	loaded_data = load_training_data(datasets_root_dir, args.data_set,
 	                                 args.caption_vector_length,
 	                                 args.n_classes)
@@ -251,12 +251,12 @@ def load_training_data(data_dir, data_set, caption_vector_length, n_classes) :
 			open(join(data_dir, 'cars', 'cars_caps.pkl'), "rb"))
 
 		img_classes = pickle.load(
-			open(join(data_dir, 'cars', 'car_tc.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'cars_tc.pkl'), "rb"))
 
 		flower_enc_captions = pickle.load(
-			open(join(data_dir, 'cars', 'car_tv.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'cars_tv.pkl'), "rb"))
 		tr_image_ids = pickle.load(
-			open(join(data_dir, 'cars', 'cars_ids.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'train_ids.pkl'), "rb"))
 		val_image_ids = pickle.load(
 			open(join(data_dir, 'cars', 'val_ids.pkl'), "rb"))
 
