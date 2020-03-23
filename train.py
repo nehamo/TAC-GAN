@@ -78,7 +78,7 @@ def main():
 	loaded_data = load_training_data(datasets_root_dir, args.data_set,
 	                                 args.caption_vector_length,
 	                                 args.n_classes)
-	 print("coming here")
+									 
 	model_options = {
 		'z_dim': args.z_dim,
 		't_dim': args.t_dim,
