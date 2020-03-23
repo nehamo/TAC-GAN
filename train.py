@@ -341,7 +341,7 @@ def save_for_vis(data_dir, real_images, generated_images, image_files,
 	for i in range(0, real_images.shape[0]) :
 		real_images_255 = (real_images[i, :, :, :])
 		imageio.imwrite(join(data_dir,
-			   '{}_{}.tiff'.format(i, image_files[i].split('/')[-1])),
+			   '{}_{}.tif'.format(i, image_files[i].split('/')[-1])),
 		                  real_images_255)
 
 		fake_images_255 = (generated_images[i, :, :, :])
