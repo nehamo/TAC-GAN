@@ -368,7 +368,7 @@ def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 		image_caps = []
 		for idx, image_id in enumerate(image_ids) :
 			image_file = join(data_dir,
-			                  'cars/jpg/images' + image_id)
+			                  'cars/jpg/images/' + image_id)
 			random_caption = random.randint(0, 4)
 			captions[idx, :] = \
 				loaded_data['val_captions'][image_id][random_caption][
