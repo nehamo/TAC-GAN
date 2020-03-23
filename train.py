@@ -256,7 +256,7 @@ def load_training_data(data_dir, data_set, caption_vector_length, n_classes) :
 		flower_enc_captions = pickle.load(
 			open(join(data_dir, 'cars', 'cars_tv.pkl'), "rb"))
 		tr_image_ids = pickle.load(
-			open(join(data_dir, 'cars', 'train_ids.pkl'), "rb"))
+			open(join(data_dir, 'cars', 'cars_ids.pkl'), "rb"))
 		val_image_ids = pickle.load(
 			open(join(data_dir, 'cars', 'val_ids.pkl'), "rb"))
 
