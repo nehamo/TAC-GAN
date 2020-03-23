@@ -74,7 +74,7 @@ def main():
 	model_dir, model_chkpnts_dir, model_samples_dir, model_val_samples_dir,\
 							model_summaries_dir = initialize_directories(args)
 
-	datasets_root_dir = join(args.data_dir, 'datasets')
+	datasets_root_dir = join(args.data_dir, 'dataset')
 	loaded_data = load_training_data(datasets_root_dir, args.data_set,
 	                                 args.caption_vector_length,
 	                                 args.n_classes)
