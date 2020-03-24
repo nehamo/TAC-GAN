@@ -368,7 +368,7 @@ def get_val_caps_batch(batch_size, loaded_data, data_set, data_dir):
 		image_caps = []
 		for idx, image_id in enumerate(image_ids) :
 			image_file = join(data_dir,
-			                  'cars/jpg/' + image_id)
+			                  'cars/jpg/images' + image_id)
 			random_caption = random.randint(0, 4)
 			captions[idx, :] = \
 				loaded_data['val_captions'][image_id][random_caption][
@@ -412,7 +412,7 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 			wrong_image_id = random.randint(0,
 			                                len(loaded_data['image_list']) - 1)
 			wrong_image_file = join(data_dir,
-			                        'cars/jpg/' + loaded_data['image_list'][
+			                        'cars/jpg/images' + loaded_data['image_list'][
 				                                            wrong_image_id])
 			wrong_image_array = image_processing.load_image_array_flowers(wrong_image_file,
 			                                                      image_size)
