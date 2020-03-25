@@ -400,7 +400,7 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 		               batch_no * batch_size + batch_size) :
 			idx = i % len(loaded_data['image_list'])
 			image_file = join(data_dir+'/'+data_set+'/'+
-			                  'jpg/' + loaded_data['image_list'][idx])
+			                  'jpg/images/' + loaded_data['image_list'][idx])
 
 			image_ids.append(loaded_data['image_list'][idx])
 
