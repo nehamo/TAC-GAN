@@ -412,7 +412,7 @@ def get_training_batch(batch_no, batch_size, image_size, z_dim, split,
 			wrong_image_id = random.randint(0,
 			                                len(loaded_data['image_list']) - 1)
 			wrong_image_file = join(data_dir,
-			                        'cars/jpg/images' + loaded_data['image_list'][
+			                        'cars/jpg/images/' + loaded_data['image_list'][
 				                                            wrong_image_id])
 			wrong_image_array = image_processing.load_image_array_flowers(wrong_image_file,
 			                                                      image_size)
